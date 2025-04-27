@@ -1,7 +1,12 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router'
+import { useDispatch } from 'react-redux'
+import { Link, useNavigate } from 'react-router'
+import { logIn } from '../services/operations'
 
 const Login = () => {
+
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const [formData,setFormData]= useState({
     userName:"",
@@ -21,6 +26,7 @@ const Login = () => {
   const submitHandler = (e) => {
     e.preventDefault()
     console.log(formData)
+    dispatch(logIn(formData,navigate))
     setFormData({
       userName:"",
       password:""

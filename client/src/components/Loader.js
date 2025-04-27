@@ -1,30 +1,31 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { ClimbingBoxLoader } from 'react-spinners'
 
 const Loader = () => {
 
-  const [quote, setQuote] = useState("")
+  // const [quote, setQuote] = useState("")
 
-  useEffect(() => {
+  // useEffect(() => {
 
-    (async () => {
+  //   (async () => {
 
-      try {
-        const res = await fetch("https://zenquotes.io/api/random")
+  //     try {
+  //       const res = await fetch("https://zenquotes.io/api/random")
 
-        console.log(res)
+  //       console.log(res)
 
-        setQuote(res[0].q)
-      } catch (error) {
-        console.log("Could not fetch Categories.", error)
-      }
+  //       setQuote(res[0].q)
+  //     } catch (error) {
+  //       console.log("Could not fetch Categories.", error)
+  //     }
 
-    })()
-  }, [])
+  //   })()
+  // }, [])
+
   return (
-    <div>
+    <div className='min-h-screen flex justify-center items-center' >
       <ClimbingBoxLoader />
-      <div>{quote}</div>
+      {/* <div>{quote}</div> */}
     </div>
   )
 }

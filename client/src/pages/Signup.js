@@ -1,8 +1,18 @@
+
 import React from 'react'
 import { useState } from 'react'
-import { Link } from 'react-router'
+import { useDispatch } from 'react-redux'
+import { Link, useNavigate } from 'react-router'
+import {  signUp } from '../services/operations'
+import toast from "react-hot-toast"
+
+
 
 const Signup = () => {
+
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
   const [formData,setFormData]= useState({
       userName:"",
       firstName:"",
@@ -23,7 +33,11 @@ const Signup = () => {
   
     const submitHandler = (e) => {
       e.preventDefault()
+      if(password!==confirmPassword){
+       return toast.error("password does not match")
+      }
       console.log(formData)
+      dispatch(signUp(formData,navigate))
       setFormData({
         userName:"",
         firstName:"",
@@ -102,7 +116,7 @@ const Signup = () => {
                required
                type='Password'
                placeholder='Re-enter Password'
-               name='ConfirmPassword'
+               name='confirmPassword'
                value={confirmPassword}
                onChange={changeHandler}
                className='w-full '

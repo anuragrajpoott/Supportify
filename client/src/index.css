@@ -1,5 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@theme {
+    --color-calm: #D0D7DB;
+}
 @import url('https://fonts.googleapis.com/css2?family=Winky+Rough:ital,wght@0,300..900;1,300..900&display=swap');
 
